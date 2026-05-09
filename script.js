@@ -746,3 +746,30 @@ function palindrome(num){
 
 
 console.log(palindrome(121))
+
+
+
+// episode -2 reverseInteger series - 09-05-2026
+/*
+1.find last digit by modulos of 10
+2.store reverse by multply of 10 + lastdigit
+3.change the current number by floor nd divide 10.
+4.32-bit signed integer range-> [-2pow(31),2pow(31) -1]
+*/
+function reverseInteger(num){
+    let reversed = 0;
+    let Cnum = num;
+    num = Math.abs(num);
+    while(num > 0){
+        let lastDigit = num % 10;
+        reversed = (reversed * 10) + lastDigit;
+        num = Math.floor(num / 10);
+    }
+    let limit = Math.pow(2,31);
+    if(reversed < -limit || reversed > limit -1) return 0;
+
+    return Cnum < 0 ? -reversed : reversed;
+}
+
+
+console.log(reverseInteger(-1534236469))
