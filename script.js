@@ -723,3 +723,26 @@ function countDigit(n){
 }
 
 console.log(countDigit(448899))
+
+
+// episode -2 Palindrome series - 09-05-2026
+/*
+1.negative alwys at end so it false
+2. when econd time runs if we add straight become single number so we multiply by 10 and add
+3.compare with copy 
+*/
+function palindrome(num){
+    let reverse = 0;
+
+    if(num <0) return false;
+    let numCopy = num;
+    while(num > 0){
+        reverse = (reverse*10) + num % 10;
+        num = Math.floor(num/10)
+    }
+    return numCopy === reverse;
+
+}
+
+
+console.log(palindrome(121))
