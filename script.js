@@ -773,3 +773,43 @@ function reverseInteger(num){
 
 
 console.log(reverseInteger(-1534236469))
+
+
+
+//array episode series-1
+// remove duplicates and get the count of unique num present in an non decreasing arrry
+// this array still contains duplicates since we check unique numbers but only unique number count matters.
+//return number of unique elemts
+function duplicates(arr) {
+    let x = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > arr[x]) {
+            x=x+1
+            arr[x] = arr[i];
+        }
+    }
+    return x+1; // since index starts from 0 but we have to return unique numbers.
+
+}
+
+// console.log(duplicates([0,0,1,1,1,2,2,3,3,4]))
+
+//array episode series-2
+//remove an element
+function removeElement(arr,val){
+    let x =0;
+    for(let i=0;i<arr.length;i++){
+        if(arr[i]!== val){
+            arr[x] = arr[i];
+            x++;
+        }
+    }
+    console.log(arr)
+    return x; // returning x since it counts one if there is one unique number.
+}
+
+// console.log(removeElement([1,2,2,3,4,5],2));
+// console.log(removeElement([3,2,2,3],3));
+// console.log(removeElement([0,1,2,2,3,0,4,2],2));
+console.log(removeElement([3,1,3,4,3,3,3,7],3));
