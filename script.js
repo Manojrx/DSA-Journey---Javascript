@@ -813,3 +813,132 @@ function removeElement(arr,val){
 // console.log(removeElement([3,2,2,3],3));
 // console.log(removeElement([0,1,2,2,3,0,4,2],2));
 console.log(removeElement([3,1,3,4,3,3,3,7],3));
+
+// episode - 3 Reverse string & best to buy stock
+function reverseStringinArray(arr){
+    let n = arr.length;
+    let loopLimit = Math.floor(n / 2);
+
+    let swap = (i ,j) => {
+        let temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+        //return arr;   // if it going to stored in new array then we can have return now ignore!.
+    }
+    for(let i=0; i< loopLimit;i++){
+        swap(i , n-1-i);
+    }
+
+    return arr;
+}
+
+// console.log('reverseStringinArray',reverseStringinArray(['a','b','c','d','e']));
+
+
+
+function reverseArray(arr){
+    let length = arr.length;
+    let half = Math.floor(length/2);
+
+    for(let i =0; i < half;i++){
+        let temp = arr[i];
+        arr[i] = arr[length-1-i];
+        arr[length-1-i] =  temp;
+    };
+    return arr;
+};
+
+
+// console.log('reverseArray',reverseArray(['a','b','c','d','e']));
+
+
+function maxProfit(arr){
+
+    let minValue = arr[0];
+    let maxProfit = 0;
+    for(let i=0;i<arr.length;i++){
+
+        if(arr[i] - minValue > maxProfit){
+            maxProfit = arr[i] - minValue;
+        }
+
+        if(arr[i]< minValue){
+            minValue = arr[i];
+        }
+    }
+    return maxProfit;
+}
+
+// console.log(maxProfit([7,1,5,3,6,4])) //5
+
+// console.log(maxProfit([500,30,200,1])) //170
+
+function removeDuplicates(arr){
+    let x = 0;
+    for(let i= 0; i<arr.length; i++){
+        if(arr[i] !== arr[x]){
+            x++;
+            arr[x] = arr[i]
+        }
+    }
+    return ++x; //how many unique numbers present
+}
+
+// console.log(removeDuplicates([0,0,1,1,1,2,2,3,3,4,5]))
+
+
+function removeGivenVAl(arr,val){
+    let x = 0;
+    for(let i=0;i<arr.length;i++){
+        if(arr[i] !== val){
+            arr[x] = arr[i];
+            x++;
+        }
+    }
+// find the numbers not equal to given number
+    return x; 
+}
+
+
+
+// console.log(removeGivenVAl([1,2,2,3,4,5],2));
+
+
+
+
+function maxProfit(arr){
+
+    let maxProfit = 0;
+    let minValue = arr[0];
+
+    for(let i =0 ; i< arr.length; i++){
+        if(arr[i] - minValue > maxProfit){
+            maxProfit = arr[i] - minValue
+        }
+        if(arr[i]< minValue){
+            minValue = arr[i]
+        }
+    }
+    return maxProfit;
+}
+
+//console.log(maxProfit([1,2,4,5]))
+
+
+function replaceValue(arr){
+
+    let length = arr.length;
+    let halfLength = Math.floor(length/2);
+
+    for(let i =0 ; i< halfLength; i++){
+        let temp = arr[i];
+        arr[i] = arr[length-1-i];
+        arr[length-1-i] = temp
+    }
+    return arr;
+}
+
+console.log(replaceValue([4,3,2,1]))
+
+
+
